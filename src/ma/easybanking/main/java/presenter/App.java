@@ -2,6 +2,7 @@ package ma.easybanking.main.java.presenter;
 
 import ma.easybanking.main.java.database.DBConnection;
 import ma.easybanking.main.java.model.AgencyModel;
+import ma.easybanking.main.java.model.DAO.Implmnts.AgencyDAOImp;
 import ma.easybanking.main.java.model.DAO.Services.AgencyService;
 import ma.easybanking.main.java.utils.Helpers;
 import ma.easybanking.main.java.view.AgencyView;
@@ -14,6 +15,10 @@ public class App {
     //-------------------------Services---------------------------------
 
     private static AgencyService agencyService;
+
+    //------------------------DAOs Implmnts------------------------------
+
+    private static AgencyDAOImp agencyDAOImp;
 
     //-------------------------Models------------------------------------
 
@@ -30,6 +35,7 @@ public class App {
 
     private static String[] options = {
             "Ajouter une Agence",
+            "Supprimer une Agence"
     };
 
     public static void start(){
@@ -41,9 +47,13 @@ public class App {
 
         agencyService = new AgencyService(connection);
 
+        //-----------------------DAOs Implmnts------------------------------
+
+        agencyDAOImp = new AgencyDAOImp(agencyService);
+
         //-------------------------Models------------------------------------
 
-        agencyModel = new AgencyModel(agencyService);
+        agencyModel = new AgencyModel(agencyDAOImp);
 
         //-------------------------Views-------------------------------------
 
@@ -107,6 +117,9 @@ public class App {
         switch(option) {
             case 1:
                 agencyPresenter.saveAgency();
+                break;
+            case 2:
+                agencyPresenter.deleteAgency();
                 break;
             default:
                 break;

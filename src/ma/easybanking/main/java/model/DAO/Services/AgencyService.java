@@ -13,6 +13,9 @@ public class AgencyService {
 
     private static final String SAVE_AGENCY = "insert into agencies (name, address, phonenumber) values (?,?,?) returning code";
 
+    private static final String DELETE_AGENCY = "update agencies set deleted=true where code=?";
+
+
 
 
     //Constructor
@@ -40,6 +43,30 @@ public class AgencyService {
         }
 
         return agency;
+
+    }
+
+    //Agency Deletion
+    public Boolean deleteAgency(Agency agency){
+
+        int rowsUpdated = 0;
+
+        try {
+
+            PreparedStatement stmt = this.connection.prepareStatement(DELETE_AGENCY);
+
+            stmt.setInt(1,agency.getCode());
+
+            rowsUpdated = stmt.executeUpdate();
+
+        }
+        catch (Exception e) {
+
+            System.out.println(e);
+
+        }
+
+        return rowsUpdated>0;
 
     }
 

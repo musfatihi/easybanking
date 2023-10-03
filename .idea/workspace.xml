@@ -4,22 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1207c93a-e97c-40f8-98b7-0620c75c4710" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/database/DBConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/database/DBConnection.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Intrfcs/GenericInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Agency.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Attribut.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Helpers.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/AgencyView.java" afterDir="false" />
+    <list default="true" id="1207c93a-e97c-40f8-98b7-0620c75c4710" name="Changes" comment="EASB-6 add agency">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easybanking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easybanking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Agency.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Agency.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/AgencyView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/AgencyView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,26 +36,26 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="UPDATE_TYPE" value="REBASE" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 0
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 0
+}</component>
   <component name="ProjectId" id="2WCWjArHvjdKHI4pIY7HqaaCZMT" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "EASB-2-Admin-agences",
-    "last_opened_file_path": "C:/Users/yc/Downloads/postgresql-42.6.0.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;EASB-2-Admin-agences&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yc/Downloads/postgresql-42.6.0.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -72,6 +65,19 @@
       <option name="presentableId" value="Default" />
       <updated>1696237176928</updated>
     </task>
+    <task id="LOCAL-00001" summary="EASB-6 add agency">
+      <option name="closed" value="true" />
+      <created>1696330084205</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1696330084206</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="EASB-6 add agency" />
+    <option name="LAST_COMMIT_MESSAGE" value="EASB-6 add agency" />
   </component>
 </project>

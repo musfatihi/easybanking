@@ -10,6 +10,10 @@ public class Agency {
 
     }
 
+    public Agency(int code){
+        this.code = code;
+    }
+
     public Agency(String name,String address,String phoneNumber){
         this.name = name;
         this.address = address;
@@ -52,4 +56,5 @@ public class Agency {
     public String toString() {
         return "Code : "+this.code+"\n"+"Nom : "+this.name+"\n"+"Adresse : "+this.address+"\n"+"N° Tél : "+this.phoneNumber+"\n";
     }
+
 }

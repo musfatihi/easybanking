@@ -40,8 +40,41 @@ public class AgencyView {
 
     }
 
+    public Agency getAgency(){
+
+        System.out.println("----------------------Suppression d'une Agence--------------------------");
+
+        String[] fields = {"Code Agence"};
+
+        List<Attribut> attributs = new ArrayList<>();
+
+        for (String field:fields) {
+
+            Attribut attribut = new Attribut(field);
+
+            attributs.add(attribut);
+
+        }
+
+
+        HashMap<String,String> filledFields = Helpers.takeInfos(attributs);
+
+        System.out.println("--------------------------------------------------------------------");
+
+        return new Agency(Integer.valueOf(filledFields.get("Code Agence")));
+
+    }
+
     public void displayAgency(Agency agency){
         System.out.println(agency);
+    }
+
+    public void displaySuccessMsg(String msg){
+        Helpers.displaySuccessMsg(msg);
+    }
+
+    public void displayErrorMsg(String msg){
+        Helpers.displayErrorMsg(msg);
     }
 
 

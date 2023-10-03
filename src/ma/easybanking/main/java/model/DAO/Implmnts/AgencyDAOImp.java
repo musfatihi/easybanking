@@ -8,7 +8,7 @@ import java.util.Optional;
 
 public class AgencyDAOImp implements GenericInterface<Agency> {
 
-    public static AgencyService agencyService;
+    private static AgencyService agencyService;
 
     public AgencyDAOImp(AgencyService agencyService){
         AgencyDAOImp.agencyService = agencyService;
@@ -16,7 +16,7 @@ public class AgencyDAOImp implements GenericInterface<Agency> {
 
     @Override
     public Agency save(Agency item) {
-        return null;
+        return agencyService.saveAgency(item);
     }
 
     @Override
@@ -31,6 +31,6 @@ public class AgencyDAOImp implements GenericInterface<Agency> {
 
     @Override
     public Boolean delete(Agency item) {
-        return null;
+        return agencyService.deleteAgency(item);
     }
 }

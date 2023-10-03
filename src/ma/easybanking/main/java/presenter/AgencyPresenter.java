@@ -19,8 +19,12 @@ public class AgencyPresenter {
     }
 
     public void deleteAgency(){
-        Agency agency = agencyModel.saveAgency(agencyView.saveAgency());
-        agencyView.displayAgency(agency);
+        if(agencyModel.deleteAgency(agencyView.getAgency()))
+        {
+            agencyView.displaySuccessMsg("Agence supprimée avec succès");
+        }else{
+            agencyView.displayErrorMsg("Erreur lors de la suppression");
+        }
     }
 
 }

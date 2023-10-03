@@ -79,5 +79,12 @@ public class Helpers {
     }
 
 
+    public static double monthlypymnt(double capital,int months,double t){
+
+        return ((capital*(t/12))/(1-Math.pow((1+(t/12)),-months)));
+
+    }
+
+
 
 }

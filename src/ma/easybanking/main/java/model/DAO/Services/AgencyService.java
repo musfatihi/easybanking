@@ -5,6 +5,7 @@ import ma.easybanking.main.java.model.DTO.Agency;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.Optional;
 
 
 public class AgencyService {
@@ -14,6 +15,9 @@ public class AgencyService {
     private static final String SAVE_AGENCY = "insert into agencies (name, address, phonenumber) values (?,?,?) returning code";
 
     private static final String DELETE_AGENCY = "update agencies set deleted=true where code=?";
+
+    private static final String FIND_AGENCY_BY_CODE = "select * from agencies where code=? and deleted=false";
+
 
 
 
@@ -67,6 +71,34 @@ public class AgencyService {
         }
 
         return rowsUpdated>0;
+
+    }
+
+    public Optional<Agency> findAgencyByCode(Agency agency){
+
+        try {
+
+            PreparedStatement stmt = this.connection.prepareStatement(FIND_AGENCY_BY_CODE);
+
+            stmt.setInt(1, agency.getCode());
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                agency.setName(resultSet.getString(2));
+                agency.setAddress(resultSet.getString(3));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                return Optional.of(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return Optional.empty();
 
     }
 

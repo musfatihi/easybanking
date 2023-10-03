@@ -40,9 +40,9 @@ public class AgencyView {
 
     }
 
-    public Agency getAgency(){
+    public Agency getAgency(String title){
 
-        System.out.println("----------------------Suppression d'une Agence--------------------------");
+        System.out.println("----------------------"+title+"--------------------------");
 
         String[] fields = {"Code Agence"};
 
@@ -64,6 +64,14 @@ public class AgencyView {
         return new Agency(Integer.valueOf(filledFields.get("Code Agence")));
 
     }
+
+
+
+
+
+
+
+
 
     public void displayAgency(Agency agency){
         System.out.println(agency);

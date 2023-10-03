@@ -35,7 +35,8 @@ public class App {
 
     private static String[] options = {
             "Ajouter une Agence",
-            "Supprimer une Agence"
+            "Supprimer une Agence",
+            "Trouver une Agence par code"
     };
 
     public static void start(){
@@ -120,6 +121,9 @@ public class App {
                 break;
             case 2:
                 agencyPresenter.deleteAgency();
+                break;
+            case 3:
+                agencyPresenter.findAgencyByCode();
                 break;
             default:
                 break;

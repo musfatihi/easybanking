@@ -26,7 +26,7 @@ public class AgencyDAOImp implements GenericInterface<Agency> {
 
     @Override
     public Optional<Agency> findById(Agency item) {
-        return Optional.empty();
+        return agencyService.findAgencyByCode(item);
     }
 
     @Override

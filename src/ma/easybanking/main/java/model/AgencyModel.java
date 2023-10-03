@@ -4,6 +4,8 @@ import ma.easybanking.main.java.model.DTO.Agency;
 
 import ma.easybanking.main.java.model.DAO.Implmnts.AgencyDAOImp;
 
+import java.util.Optional;
+
 
 public class AgencyModel {
 
@@ -17,6 +19,10 @@ public class AgencyModel {
 
     public boolean deleteAgency(Agency agency){
         return agencyDAOImp.delete(agency);
+    }
+
+    public Optional<Agency> findAgencyByCode(Agency agency){
+        return agencyDAOImp.findById(agency);
     }
 
 }

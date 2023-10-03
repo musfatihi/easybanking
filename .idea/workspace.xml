@@ -1,14 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1207c93a-e97c-40f8-98b7-0620c75c4710" name="Changes" comment="" />
+    <list default="true" id="1207c93a-e97c-40f8-98b7-0620c75c4710" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/database/DBConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/database/DBConnection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Intrfcs/GenericInterface.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Agency.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Attribut.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Helpers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/AgencyView.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/easybanking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easybanking.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 0
@@ -23,7 +56,11 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master"
+    "git-widget-placeholder": "EASB-2-Admin-agences",
+    "last_opened_file_path": "C:/Users/yc/Downloads/postgresql-42.6.0.jar",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
   }
 }]]></component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />

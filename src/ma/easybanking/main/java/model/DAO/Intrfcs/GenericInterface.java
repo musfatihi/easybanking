@@ -4,9 +4,9 @@ import java.util.Optional;
 
 public interface GenericInterface<T> {
 
-    T save(T item);
+    Optional<T> save(T item);
 
-    T update(T item);
+    Optional<T> update(T item);
 
     Optional<T> findById(T item);
 

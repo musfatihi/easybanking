@@ -16,8 +16,12 @@ public class AgencyPresenter {
     }
 
     public void saveAgency(){
-        Agency agency = agencyModel.saveAgency(agencyView.saveAgency());
-        agencyView.displayAgency(agency);
+        Optional<Agency> optionalAgency = agencyModel.saveAgency(agencyView.saveAgency());
+        if(optionalAgency.isPresent()){
+            agencyView.displayAgency(optionalAgency.get());
+        }else{
+
+        }
     }
 
     public void deleteAgency(){
@@ -33,9 +37,7 @@ public class AgencyPresenter {
 
         Optional<Agency> agencyOptional = agencyModel.findAgencyByCode(agencyView.getAgency("Checher une Agence"));
 
-        if(agencyOptional.isPresent()){
-            agencyView.displayAgency(agencyOptional.get());
-        }
+        agencyOptional.ifPresent(agency -> agencyView.displayAgency(agency));
 
     }
 

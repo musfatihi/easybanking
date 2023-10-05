@@ -2,6 +2,8 @@ package ma.easybanking.main.java.utils;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.List;
 
@@ -85,6 +87,15 @@ public class Helpers {
 
     }
 
+    public static String localDateToStr(LocalDate localDate){
 
+        DateTimeFormatter formatters = DateTimeFormatter.ofPattern("d/MM/uuuu");
+        return localDate.format(formatters);
 
+    }
+
+    public static LocalDate strToDate(String date){
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        return LocalDate.parse(date, formatter);
+    }
 }

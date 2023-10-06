@@ -26,7 +26,7 @@ public class AgencyService {
     //Agency Deletion
     public Boolean deleteAgency(Agency agency){
 
-        return agencyDAOImp.delete(agency);
+        return agencyDAOImp.delete(agency.getCode());
 
     }
 

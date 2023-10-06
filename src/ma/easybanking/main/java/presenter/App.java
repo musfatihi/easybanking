@@ -1,18 +1,11 @@
 package ma.easybanking.main.java.presenter;
 
 import ma.easybanking.main.java.database.DBConnection;
-import ma.easybanking.main.java.model.AgencyEmployeeModel;
-import ma.easybanking.main.java.model.AgencyModel;
-import ma.easybanking.main.java.model.DAO.Implmnts.AgencyDAOImp;
-import ma.easybanking.main.java.model.DAO.Implmnts.AgencyEmployeeDAOImp;
-import ma.easybanking.main.java.model.DAO.Implmnts.EmployeeDAOImp;
-import ma.easybanking.main.java.model.DAO.Services.AgencyEmployeeService;
-import ma.easybanking.main.java.model.DAO.Services.AgencyService;
-import ma.easybanking.main.java.model.DAO.Services.EmployeeService;
-import ma.easybanking.main.java.model.EmployeeModel;
+import ma.easybanking.main.java.model.*;
+import ma.easybanking.main.java.model.DAO.Implmnts.*;
+import ma.easybanking.main.java.model.DAO.Services.*;
 import ma.easybanking.main.java.utils.Helpers;
-import ma.easybanking.main.java.view.AgencyView;
-import ma.easybanking.main.java.view.EmployeeView;
+import ma.easybanking.main.java.view.*;
 
 import java.sql.Connection;
 import java.util.Scanner;
@@ -27,6 +20,10 @@ public class App {
 
     private static AgencyEmployeeDAOImp agencyEmployeeDAOImp;
 
+    private static CurrentaccntDAOImp currentaccntDAOImp;
+
+    private static SavingsaccntDAOImp savingsaccntDAOImp;
+
     //-------------------------Services---------------------------------
 
     private static AgencyService agencyService;
@@ -34,6 +31,10 @@ public class App {
     private static EmployeeService employeeService;
 
     private static AgencyEmployeeService agencyEmployeeService;
+
+    private static CurrentaccntService currentaccntService;
+
+    private static SavingsaccntService savingsaccntService;
 
 
     //-------------------------Models------------------------------------
@@ -44,11 +45,24 @@ public class App {
 
     private static AgencyEmployeeModel agencyEmployeeModel;
 
+    private static CurrentaccntModel currentaccntModel;
+
+    private static SavingsaccntModel savingsaccntModel;
+
     //-------------------------Views-------------------------------------
 
     private static AgencyView agencyView;
 
     private static EmployeeView employeeView;
+
+    private static ClientView clientView;
+
+    private static CurrentaccntView currentaccntView;
+
+    private static SavingsaccntView savingsaccntView;
+
+    private static CreditSimulationView creditSimulationView;
+
 
     //-------------------------Presenters---------------------------------
 
@@ -58,13 +72,22 @@ public class App {
 
     private static AgencyEmployeePresenter agencyEmployeePresenter;
 
+    private static CurrentaccntPresenter currentaccntPresenter;
+
+    private static SavingsaccntPresenter savingsaccntPresenter;
+
+    private static CreditSimulationPresenter creditSimulationPresenter;
+
 
     private static String[] options = {
             "Ajouter une Agence",
             "Supprimer une Agence",
             "Trouver une Agence par code",
             "Ajouter un Employé",
-            "Affecter un Employé à une agence"
+            "Affecter un Employé à une Agence",
+            "Créer un Compte Courant",
+            "Créer un Compte d'epargne",
+            "Faire une simulation de crédit"
     };
 
     public static void start(){
@@ -79,6 +102,10 @@ public class App {
 
         agencyEmployeeDAOImp = new AgencyEmployeeDAOImp(connection);
 
+        currentaccntDAOImp = new CurrentaccntDAOImp(connection);
+
+        savingsaccntDAOImp = new SavingsaccntDAOImp(connection);
+
 
         //-------------------------Services---------------------------------
 
@@ -88,6 +115,10 @@ public class App {
 
         agencyEmployeeService = new AgencyEmployeeService(agencyEmployeeDAOImp);
 
+        currentaccntService = new CurrentaccntService(currentaccntDAOImp);
+
+        savingsaccntService = new SavingsaccntService(savingsaccntDAOImp);
+
         //-------------------------Models------------------------------------
 
         agencyModel = new AgencyModel(agencyService);
@@ -96,16 +127,29 @@ public class App {
 
         agencyEmployeeModel = new AgencyEmployeeModel(agencyEmployeeService);
 
+        currentaccntModel = new CurrentaccntModel(currentaccntService);
+
+        savingsaccntModel = new SavingsaccntModel(savingsaccntService);
+
         //-------------------------Views-------------------------------------
 
         agencyView = new AgencyView();
         employeeView = new EmployeeView();
+        clientView = new ClientView();
+        currentaccntView = new CurrentaccntView();
+        savingsaccntView = new SavingsaccntView();
+
+        creditSimulationView = new CreditSimulationView();
 
         //-------------------------Presenters---------------------------------
 
         agencyPresenter = new AgencyPresenter(agencyView,agencyModel);
         employeePresenter = new EmployeePresenter(employeeView,employeeModel);
         agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
+        currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
+        savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
+
+        creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView);
 
 
 
@@ -173,6 +217,15 @@ public class App {
                 break;
             case 5:
                 agencyEmployeePresenter.assignEmployeeAgency();
+                break;
+            case 6:
+                currentaccntPresenter.saveCurrentaccnt();
+                break;
+            case 7:
+                savingsaccntPresenter.saveSavingsaccnt();
+                break;
+            case 8:
+                creditSimulationPresenter.simulateCredit();
                 break;
             default:
                 break;

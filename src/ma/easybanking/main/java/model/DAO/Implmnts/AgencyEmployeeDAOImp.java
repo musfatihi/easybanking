@@ -9,7 +9,7 @@ import java.sql.ResultSet;
 import java.time.LocalDate;
 import java.util.Optional;
 
-public class AgencyEmployeeDAOImp implements GenericInterface<AgencyEmployee> {
+public class AgencyEmployeeDAOImp implements GenericInterface<AgencyEmployee,Integer> {
 
     private Connection connection;
 
@@ -59,7 +59,7 @@ public class AgencyEmployeeDAOImp implements GenericInterface<AgencyEmployee> {
     }
 
     @Override
-    public Boolean delete(AgencyEmployee agencyEmployee) {
+    public Boolean delete(Integer nbr) {
         return null;
     }
 }

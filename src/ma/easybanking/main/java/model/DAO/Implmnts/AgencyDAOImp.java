@@ -9,7 +9,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Optional;
 
-public class AgencyDAOImp implements GenericInterface<Agency> {
+public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
     private static Connection connection;
 
@@ -79,14 +79,14 @@ public class AgencyDAOImp implements GenericInterface<Agency> {
     }
 
     @Override
-    public Boolean delete(Agency agency) {
+    public Boolean delete(Integer code) {
         int rowsUpdated = 0;
 
         try {
 
             PreparedStatement stmt = connection.prepareStatement(DELETE_AGENCY);
 
-            stmt.setInt(1,agency.getCode());
+            stmt.setInt(1,code);
 
             rowsUpdated = stmt.executeUpdate();
 
@@ -101,7 +101,7 @@ public class AgencyDAOImp implements GenericInterface<Agency> {
     }
 
     @Override
-    public Optional<Agency> update(Agency item) {
+    public Optional<Agency> update(Agency agency) {
         return null;
     }
 

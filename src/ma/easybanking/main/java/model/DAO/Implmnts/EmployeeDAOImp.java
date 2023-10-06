@@ -8,7 +8,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.Optional;
 
-public class EmployeeDAOImp implements GenericInterface<Employee> {
+public class EmployeeDAOImp implements GenericInterface<Employee,Integer> {
 
     private static Connection connection;
 
@@ -51,17 +51,17 @@ public class EmployeeDAOImp implements GenericInterface<Employee> {
     }
 
     @Override
-    public Optional<Employee> update(Employee item) {
+    public Optional<Employee> update(Employee employee) {
         return Optional.empty();
     }
 
     @Override
-    public Optional<Employee> findById(Employee item) {
+    public Optional<Employee> findById(Employee employee) {
         return Optional.empty();
     }
 
     @Override
-    public Boolean delete(Employee item) {
+    public Boolean delete(Integer mtrcl) {
         return null;
     }
 }

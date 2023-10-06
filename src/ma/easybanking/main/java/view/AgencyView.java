@@ -52,6 +52,8 @@ public class AgencyView {
 
             Attribut attribut = new Attribut(field);
 
+            attribut.setType("number");
+
             attributs.add(attribut);
 
         }
@@ -64,13 +66,6 @@ public class AgencyView {
         return new Agency(Integer.valueOf(filledFields.get("Code Agence")));
 
     }
-
-
-
-
-
-
-
 
 
     public void displayAgency(Agency agency){

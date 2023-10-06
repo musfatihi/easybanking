@@ -31,7 +31,8 @@ public class Helpers {
 
                 }
 
-            }while (attribut.isMandatory() && input.equals(""));
+            }while (attribut.isMandatory() && input.equals("") ||
+            attribut.getType().equals("number") && !isNumber(input));
 
 
             filledFields.put(attribut.getName(),input);
@@ -81,11 +82,7 @@ public class Helpers {
     }
 
 
-    public static double monthlypymnt(double capital,int months,double t){
 
-        return ((capital*(t/12))/(1-Math.pow((1+(t/12)),-months)));
-
-    }
 
     public static String localDateToStr(LocalDate localDate){
 

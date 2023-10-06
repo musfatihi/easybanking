@@ -2,7 +2,7 @@ package ma.easybanking.main.java.model.DAO.Intrfcs;
 
 import java.util.Optional;
 
-public interface GenericInterface<T> {
+public interface GenericInterface<T,I> {
 
     Optional<T> save(T item);
 
@@ -10,6 +10,6 @@ public interface GenericInterface<T> {
 
     Optional<T> findById(T item);
 
-    Boolean delete(T item);
+    Boolean delete(I id);
 
 }

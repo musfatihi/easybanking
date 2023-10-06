@@ -17,4 +17,8 @@ public class TransferModel {
         return this.transferService.saveTransfer(transfer);
     }
 
+    public boolean deleteTransfer(Transfer transfer){
+        return transferService.deleteTransfer(transfer);
+    }
+
 }

@@ -16,6 +16,8 @@ public class TransferDAOImp implements GenericInterface<Transfer,Integer> {
 
     private static final String SAVE_TRANSFER = "with i as (insert into operations (amount) values (?) returning nbr) insert into transfers (opnbr,srcaccnt,destaccnt) select nbr,?,? from i returning opnbr";
 
+    private static final String DELETE_TRANSFER = "update operations set deleted=true where nbr=?";
+
 
     public TransferDAOImp(Connection connection)
     {
@@ -63,6 +65,25 @@ public class TransferDAOImp implements GenericInterface<Transfer,Integer> {
 
     @Override
     public Boolean delete(Integer nbr) {
-        return null;
+
+        int rowsUpdated = 0;
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(DELETE_TRANSFER);
+
+            stmt.setInt(1,nbr);
+
+            rowsUpdated = stmt.executeUpdate();
+
+        }
+        catch (Exception e) {
+
+            System.out.println(e);
+
+        }
+
+        return rowsUpdated>0;
     }
+
 }

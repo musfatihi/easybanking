@@ -18,4 +18,8 @@ public class TransferService {
         return transferDAOImp.save(transfer);
     }
 
+    public boolean deleteTransfer(Transfer transfer){
+        return transferDAOImp.delete(transfer.getNbr());
+    }
+
 }

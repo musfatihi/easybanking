@@ -45,6 +45,33 @@ public class TranferView {
 
     }
 
+    public Transfer getTrnsferCode(String title)
+    {
+        System.out.println("----------------------"+title+"--------------------------");
+
+        String[] fields = {"Numero de Virement"};
+
+        List<Attribut> attributs = new ArrayList<>();
+
+        for (String field:fields) {
+
+            Attribut attribut = new Attribut(field);
+
+            attribut.setType("number");
+
+            attributs.add(attribut);
+
+        }
+
+
+        HashMap<String,String> filledFields = Helpers.takeInfos(attributs);
+
+        System.out.println("--------------------------------------------------------------------");
+
+        return new Transfer(Integer.valueOf(filledFields.get("Numero de Virement")));
+
+    }
+
     public void displayTransfer(Transfer transfer){
         System.out.println(transfer);
     }
@@ -52,5 +79,7 @@ public class TranferView {
     public void displayErrorMsg(String msg){
         Helpers.displayErrorMsg(msg);
     }
+
+    public void displaySuccessMsg(String msg){Helpers.displaySuccessMsg(msg);}
 
 }

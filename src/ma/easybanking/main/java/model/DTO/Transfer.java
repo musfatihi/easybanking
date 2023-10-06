@@ -13,6 +13,10 @@ public class Transfer extends Operation{
 
     private Account destAccount;
 
+    public Transfer(int nbr){
+        this.nbr = nbr;
+    }
+
     public Transfer(double amount,Account srcAccount, Account destAccount){
         this.amount = amount;
         this.srcAccount = srcAccount;

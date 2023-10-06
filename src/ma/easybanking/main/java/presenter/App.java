@@ -98,7 +98,8 @@ public class App {
             "Créer un Compte Courant",
             "Créer un Compte d'epargne",
             "Faire une simulation de crédit",
-            "Lancer un virement"
+            "Lancer un virement",
+            "Supprimer un virement"
     };
 
     public static void start(){
@@ -249,6 +250,9 @@ public class App {
                 break;
             case 9:
                 transferPresenter.saveTransfer();
+                break;
+            case 10:
+                transferPresenter.deleteTransfer();
                 break;
             default:
                 break;

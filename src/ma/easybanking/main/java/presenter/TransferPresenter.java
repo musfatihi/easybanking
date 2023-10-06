@@ -30,4 +30,17 @@ public class TransferPresenter {
         }
     }
 
+    public void deleteTransfer(){
+
+        if(transferModel.deleteTransfer(transferView.getTrnsferCode("")))
+        {
+            transferView.displaySuccessMsg("Virement supprimé avec succès");
+        }
+        else
+        {
+            transferView.displayErrorMsg("L'Opération de suppression a échoué!!");
+        }
+
+    }
+
 }

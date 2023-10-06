@@ -26,6 +26,10 @@ public class Account {
 
     }
 
+    public Account(int nbr){
+        this.nbr = nbr;
+    }
+
     public String toString() {
         return "Numéro de Compte : "+this.nbr+"\n"+"Date de création : "+ Helpers.localDateToStr(this.crtnDate)+"\n"+"Solde : "+this.balance+"\n"+
                 "Agence : "+this.agency.getCode()+"\n"+"Employé : "+this.createdBy.getMtrcltNbr()+"\n"+"Client : "+this.client.getCode()+"\n"+"Etat : "+this.state+"\n";

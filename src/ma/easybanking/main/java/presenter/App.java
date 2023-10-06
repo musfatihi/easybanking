@@ -24,6 +24,9 @@ public class App {
 
     private static SavingsaccntDAOImp savingsaccntDAOImp;
 
+
+    private static TransferDAOImp transferDAOImp;
+
     //-------------------------Services---------------------------------
 
     private static AgencyService agencyService;
@@ -35,6 +38,8 @@ public class App {
     private static CurrentaccntService currentaccntService;
 
     private static SavingsaccntService savingsaccntService;
+
+    private static TransferService transferService;
 
 
     //-------------------------Models------------------------------------
@@ -49,6 +54,8 @@ public class App {
 
     private static SavingsaccntModel savingsaccntModel;
 
+    private static TransferModel transferModel;
+
     //-------------------------Views-------------------------------------
 
     private static AgencyView agencyView;
@@ -62,6 +69,8 @@ public class App {
     private static SavingsaccntView savingsaccntView;
 
     private static CreditSimulationView creditSimulationView;
+
+    private static TranferView tranferView;
 
 
     //-------------------------Presenters---------------------------------
@@ -78,6 +87,8 @@ public class App {
 
     private static CreditSimulationPresenter creditSimulationPresenter;
 
+    private static TransferPresenter transferPresenter;
+
 
     private static String[] options = {
             "Ajouter une Agence",
@@ -87,7 +98,9 @@ public class App {
             "Affecter un Employé à une Agence",
             "Créer un Compte Courant",
             "Créer un Compte d'epargne",
-            "Faire une simulation de crédit"
+            "Faire une simulation de crédit",
+            "Lancer un virement",
+            "Supprimer un virement"
     };
 
     public static void start(){
@@ -106,6 +119,8 @@ public class App {
 
         savingsaccntDAOImp = new SavingsaccntDAOImp(connection);
 
+        transferDAOImp = new TransferDAOImp(connection);
+
 
         //-------------------------Services---------------------------------
 
@@ -119,6 +134,8 @@ public class App {
 
         savingsaccntService = new SavingsaccntService(savingsaccntDAOImp);
 
+        transferService = new TransferService(transferDAOImp);
+
         //-------------------------Models------------------------------------
 
         agencyModel = new AgencyModel(agencyService);
@@ -131,6 +148,8 @@ public class App {
 
         savingsaccntModel = new SavingsaccntModel(savingsaccntService);
 
+        transferModel = new TransferModel(transferService);
+
         //-------------------------Views-------------------------------------
 
         agencyView = new AgencyView();
@@ -140,6 +159,7 @@ public class App {
         savingsaccntView = new SavingsaccntView();
 
         creditSimulationView = new CreditSimulationView();
+        tranferView = new TranferView();
 
         //-------------------------Presenters---------------------------------
 
@@ -150,6 +170,8 @@ public class App {
         savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
 
         creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView);
+
+        transferPresenter = new TransferPresenter(transferModel,tranferView);
 
 
 
@@ -226,6 +248,12 @@ public class App {
                 break;
             case 8:
                 creditSimulationPresenter.simulateCredit();
+                break;
+            case 9:
+                transferPresenter.saveTransfer();
+                break;
+            case 10:
+                transferPresenter.deleteTransfer();
                 break;
             default:
                 break;

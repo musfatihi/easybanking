@@ -21,7 +21,7 @@ public class EmployeePresenter {
 
         if(optionalEmployee.isPresent())
         {
-            System.out.println(optionalEmployee.get());
+            employeeView.displayEmployee(optionalEmployee.get());
         }
         else
         {

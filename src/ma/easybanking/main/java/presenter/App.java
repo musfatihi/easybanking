@@ -24,8 +24,9 @@ public class App {
 
     private static SavingsaccntDAOImp savingsaccntDAOImp;
 
-
     private static TransferDAOImp transferDAOImp;
+
+    private static ClientDAOImp clientDAOImp;
 
     //-------------------------Services---------------------------------
 
@@ -41,6 +42,8 @@ public class App {
 
     private static TransferService transferService;
 
+    private static ClientService clientService;
+
 
     //-------------------------Models------------------------------------
 
@@ -55,6 +58,8 @@ public class App {
     private static SavingsaccntModel savingsaccntModel;
 
     private static TransferModel transferModel;
+
+    private static ClientModel clientModel;
 
     //-------------------------Views-------------------------------------
 
@@ -89,6 +94,8 @@ public class App {
 
     private static TransferPresenter transferPresenter;
 
+    private static ClientPresenter clientPresenter;
+
 
     private static String[] options = {
             "Ajouter une Agence",
@@ -99,8 +106,10 @@ public class App {
             "Créer un Compte Courant",
             "Créer un Compte d'epargne",
             "Faire une simulation de crédit",
-            "Lancer un virement",
-            "Supprimer un virement"
+            "Lancer un Virement",
+            "Supprimer un Virement",
+            "Ajouter un Client",
+            "Chercher un Client"
     };
 
     public static void start(){
@@ -121,6 +130,9 @@ public class App {
 
         transferDAOImp = new TransferDAOImp(connection);
 
+        clientDAOImp = new ClientDAOImp(connection);
+
+
 
         //-------------------------Services---------------------------------
 
@@ -136,6 +148,8 @@ public class App {
 
         transferService = new TransferService(transferDAOImp);
 
+        clientService = new ClientService(clientDAOImp);
+
         //-------------------------Models------------------------------------
 
         agencyModel = new AgencyModel(agencyService);
@@ -149,6 +163,8 @@ public class App {
         savingsaccntModel = new SavingsaccntModel(savingsaccntService);
 
         transferModel = new TransferModel(transferService);
+
+        clientModel = new ClientModel(clientService);
 
         //-------------------------Views-------------------------------------
 
@@ -168,10 +184,9 @@ public class App {
         agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
         currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
         savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
-
         creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView);
-
         transferPresenter = new TransferPresenter(transferModel,tranferView);
+        clientPresenter = new ClientPresenter(clientModel,clientView);
 
 
 
@@ -254,6 +269,12 @@ public class App {
                 break;
             case 10:
                 transferPresenter.deleteTransfer();
+                break;
+            case 11:
+                clientPresenter.saveClient();
+                break;
+            case 12:
+                clientPresenter.findClientByCode();
                 break;
             default:
                 break;

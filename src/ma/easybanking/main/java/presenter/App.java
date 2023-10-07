@@ -248,8 +248,6 @@ public class App {
 
     }
 
-
-
     private static void treatement(int option){
 
         switch(option) {

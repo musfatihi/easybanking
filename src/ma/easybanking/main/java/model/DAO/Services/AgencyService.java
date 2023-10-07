@@ -4,6 +4,7 @@ import ma.easybanking.main.java.model.DAO.Implmnts.AgencyDAOImp;
 import ma.easybanking.main.java.model.DTO.Agency;
 
 
+import java.util.List;
 import java.util.Optional;
 
 
@@ -33,6 +34,12 @@ public class AgencyService {
     public Optional<Agency> findAgencyByCode(Agency agency){
 
         return agencyDAOImp.findById(agency);
+
+    }
+
+    public List<Agency> findAgencyByAddress(Agency agency){
+
+        return agencyDAOImp.findByAddress(agency);
 
     }
 

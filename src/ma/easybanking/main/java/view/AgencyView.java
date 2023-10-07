@@ -67,10 +67,43 @@ public class AgencyView {
 
     }
 
+    public Agency getAgencyAddress(String title){
+
+        System.out.println("----------------------"+title+"--------------------------");
+
+        String[] fields = {"Adresse dAgence"};
+
+        List<Attribut> attributs = new ArrayList<>();
+
+        for (String field:fields) {
+
+            Attribut attribut = new Attribut(field);
+
+            attributs.add(attribut);
+
+        }
+
+        HashMap<String,String> filledFields = Helpers.takeInfos(attributs);
+
+        System.out.println("--------------------------------------------------------------------");
+
+        return new Agency(filledFields.get("Adresse dAgence"));
+
+    }
+
 
     public void displayAgency(Agency agency){
         System.out.println(agency);
     }
+
+    public void displayAgencies(List<Agency> agencies){
+
+        for (Agency agency:agencies) {
+            System.out.println(agency);
+        }
+
+    }
+
 
     public void displaySuccessMsg(String msg){
         Helpers.displaySuccessMsg(msg);

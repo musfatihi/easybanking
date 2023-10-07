@@ -10,6 +10,10 @@ public class Agency {
 
     }
 
+    public Agency(String address){
+        this.address = address;
+    }
+
     public Agency(int code){
         this.code = code;
     }

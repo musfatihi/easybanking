@@ -7,6 +7,8 @@ import ma.easybanking.main.java.model.DTO.Agency;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
@@ -18,6 +20,9 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
     private static final String DELETE_AGENCY = "update agencies set deleted=true where code=?";
 
     private static final String FIND_AGENCY_BY_CODE = "select * from agencies where code=? and deleted=false";
+
+    private static final String FIND_AGENCY_BY_ADDRESS = "select * from agencies where address=? and deleted=false";
+
 
 
     public AgencyDAOImp(Connection connection){
@@ -103,6 +108,37 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
     @Override
     public Optional<Agency> update(Agency agency) {
         return null;
+    }
+
+
+    public List<Agency> findByAddress(Agency agency) {
+
+        List<Agency> agencies = new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_AGENCY_BY_ADDRESS);
+
+            stmt.setString(1, agency.getAddress());
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                agency.setCode(resultSet.getInt(1));
+                agency.setName(resultSet.getString(2));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                agencies.add(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return agencies;
+
     }
 
 }

@@ -119,7 +119,8 @@ public class App {
             "Supprimer un Virement",
             "Ajouter un Client",
             "Chercher un Client",
-            "Chercher une demande de crédit"
+            "Chercher une Demande de Crédit",
+            "Chercher une Agence par Adresse",
     };
 
     public static void start(){
@@ -290,6 +291,8 @@ public class App {
             case 13:
                 creditRequestPresenter.findCreditRequestByNbr();
                 break;
+            case 14:
+                agencyPresenter.findAgencyByAddress();
             default:
                 break;
         }

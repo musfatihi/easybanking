@@ -4,6 +4,7 @@ import ma.easybanking.main.java.model.AgencyModel;
 import ma.easybanking.main.java.model.DTO.Agency;
 import ma.easybanking.main.java.view.AgencyView;
 
+import java.util.List;
 import java.util.Optional;
 
 public class AgencyPresenter {
@@ -42,6 +43,14 @@ public class AgencyPresenter {
         }else{
 
         }
+
+    }
+
+    public void findAgencyByAddress(){
+
+        List<Agency> agencies = agencyModel.findAgencyByAddress(agencyView.getAgencyAddress("Checher une Agence par Adresse"));
+
+        agencyView.displayAgencies(agencies);
 
     }
 

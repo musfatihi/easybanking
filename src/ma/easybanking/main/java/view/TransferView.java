@@ -1,7 +1,6 @@
 package ma.easybanking.main.java.view;
 
 import ma.easybanking.main.java.model.DTO.Account;
-import ma.easybanking.main.java.model.DTO.Agency;
 import ma.easybanking.main.java.model.DTO.Transfer;
 import ma.easybanking.main.java.utils.Attribut;
 import ma.easybanking.main.java.utils.Helpers;
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class TranferView {
+public class TransferView {
 
     public Transfer getTranferInfos(String title){
 

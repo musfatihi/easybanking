@@ -10,8 +10,11 @@ public class CreditSimulationPresenter {
 
     private CreditSimulationView creditSimulationView;
 
-    public CreditSimulationPresenter(CreditSimulationView creditSimulationView){
+    private CreditRequestPresenter creditRequestPresenter;
+
+    public CreditSimulationPresenter(CreditSimulationView creditSimulationView,CreditRequestPresenter creditRequestPresenter){
         this.creditSimulationView = creditSimulationView;
+        this.creditRequestPresenter = creditRequestPresenter;
     }
 
     public void simulateCredit(){
@@ -24,7 +27,8 @@ public class CreditSimulationPresenter {
 
         if(creditSimulationView.validateSimulation())
         {
-            creditSimulationView.displaySuccessMsg("Votre demande a été bien enregistrée");
+            creditRequestPresenter.saveCreditRequest(Double.parseDouble(creditInfos.get("Montant")),Integer.valueOf(creditInfos.get("Mois")));
+
         }
 
     }

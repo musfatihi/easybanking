@@ -28,6 +28,8 @@ public class App {
 
     private static ClientDAOImp clientDAOImp;
 
+    private static CreditRequestDAOImp creditRequestDAOImp;
+
     //-------------------------Services---------------------------------
 
     private static AgencyService agencyService;
@@ -43,6 +45,8 @@ public class App {
     private static TransferService transferService;
 
     private static ClientService clientService;
+
+    private static CreditRequestService creditRequestService;
 
 
     //-------------------------Models------------------------------------
@@ -61,6 +65,8 @@ public class App {
 
     private static ClientModel clientModel;
 
+    private static CreditRequestModel creditRequestModel;
+
     //-------------------------Views-------------------------------------
 
     private static AgencyView agencyView;
@@ -75,8 +81,9 @@ public class App {
 
     private static CreditSimulationView creditSimulationView;
 
-    private static TranferView tranferView;
+    private static TransferView tranferView;
 
+    private static CreditRequestView creditRequestView;
 
     //-------------------------Presenters---------------------------------
 
@@ -95,6 +102,8 @@ public class App {
     private static TransferPresenter transferPresenter;
 
     private static ClientPresenter clientPresenter;
+
+    private static CreditRequestPresenter creditRequestPresenter;
 
 
     private static String[] options = {
@@ -132,7 +141,7 @@ public class App {
 
         clientDAOImp = new ClientDAOImp(connection);
 
-
+        creditRequestDAOImp = new CreditRequestDAOImp(connection);
 
         //-------------------------Services---------------------------------
 
@@ -150,6 +159,8 @@ public class App {
 
         clientService = new ClientService(clientDAOImp);
 
+        creditRequestService = new CreditRequestService(creditRequestDAOImp);
+
         //-------------------------Models------------------------------------
 
         agencyModel = new AgencyModel(agencyService);
@@ -166,6 +177,8 @@ public class App {
 
         clientModel = new ClientModel(clientService);
 
+        creditRequestModel = new CreditRequestModel(creditRequestService);
+
         //-------------------------Views-------------------------------------
 
         agencyView = new AgencyView();
@@ -173,9 +186,9 @@ public class App {
         clientView = new ClientView();
         currentaccntView = new CurrentaccntView();
         savingsaccntView = new SavingsaccntView();
-
         creditSimulationView = new CreditSimulationView();
-        tranferView = new TranferView();
+        tranferView = new TransferView();
+        creditRequestView = new CreditRequestView();
 
         //-------------------------Presenters---------------------------------
 
@@ -184,9 +197,11 @@ public class App {
         agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
         currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
         savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
-        creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView);
         transferPresenter = new TransferPresenter(transferModel,tranferView);
         clientPresenter = new ClientPresenter(clientModel,clientView);
+        creditRequestPresenter = new CreditRequestPresenter(creditRequestModel,creditRequestView);
+        creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView,creditRequestPresenter);
+
 
 
 

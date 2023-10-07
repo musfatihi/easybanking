@@ -36,4 +36,19 @@ public class CreditRequestPresenter {
 
     }
 
+    public void findCreditRequestByNbr(){
+
+        Optional<CreditRequest> optionalCreditRequest = creditRequestModel.findCreditRequestByNbr(creditRequestView.getCreditRequestNbr());
+
+        if(optionalCreditRequest.isPresent())
+        {
+            creditRequestView.displayCreditRequest(optionalCreditRequest.get());
+        }
+        else
+        {
+
+        }
+
+    }
+
 }

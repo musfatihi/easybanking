@@ -42,6 +42,33 @@ public class CreditRequestView {
 
     }
 
+    public CreditRequest getCreditRequestNbr(){
+
+        System.out.println("------------------------------------------------");
+
+        String[] fields = {"Numero Demande de Credit"};
+
+        List<Attribut> attributs = new ArrayList<>();
+
+        for (String field:fields) {
+
+            Attribut attribut = new Attribut(field);
+
+            attribut.setType("number");
+
+            attributs.add(attribut);
+
+        }
+
+        HashMap<String,String> filledFields = Helpers.takeInfos(attributs);
+
+        System.out.println("--------------------------------------------------------------------");
+
+        return new CreditRequest(Integer.valueOf(filledFields.get("Numero Demande de Credit")));
+
+
+    }
+
     public void displayCreditRequest(CreditRequest creditRequest){
         System.out.println(creditRequest);
     }

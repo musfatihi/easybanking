@@ -18,4 +18,9 @@ public class CreditRequestModel {
         return creditRequestService.saveCreditRequest(creditRequest);
     }
 
+    public Optional<CreditRequest> findCreditRequestByNbr(CreditRequest creditRequest)
+    {
+        return creditRequestService.findCreditRequestByNbr(creditRequest);
+    }
+
 }

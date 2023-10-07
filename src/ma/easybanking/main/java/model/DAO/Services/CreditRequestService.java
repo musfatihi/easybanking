@@ -17,4 +17,8 @@ public class CreditRequestService {
         return creditRequestDAOImp.save(creditRequest);
     }
 
+    public Optional<CreditRequest> findCreditRequestByNbr(CreditRequest creditRequest){
+        return creditRequestDAOImp.findById(creditRequest);
+    }
+
 }

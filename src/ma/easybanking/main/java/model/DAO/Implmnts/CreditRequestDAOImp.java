@@ -1,6 +1,8 @@
 package ma.easybanking.main.java.model.DAO.Implmnts;
 
 import ma.easybanking.main.java.model.DAO.Intrfcs.GenericInterface;
+import ma.easybanking.main.java.model.DTO.Agency;
+import ma.easybanking.main.java.model.DTO.Client;
 import ma.easybanking.main.java.model.DTO.CreditRequest;
 
 import java.sql.Connection;
@@ -14,6 +16,8 @@ public class CreditRequestDAOImp implements GenericInterface<CreditRequest,Integ
 
 
     private final static String  SAVE_CREDIT_REQUEST = "insert into creditrequests(client, agency, amount, duration, notes) values (?,?,?,?,?) returning nbr";
+
+    private final static String FIND_CREDIT_REQUEST_BY_NRB = "select * from creditrequests where nbr=?";
 
     public CreditRequestDAOImp(Connection connection){
         CreditRequestDAOImp.connection = connection;
@@ -53,6 +57,32 @@ public class CreditRequestDAOImp implements GenericInterface<CreditRequest,Integ
 
     @Override
     public Optional<CreditRequest> findById(CreditRequest creditRequest) {
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_CREDIT_REQUEST_BY_NRB);
+
+            stmt.setInt(1, creditRequest.getNbr());
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next())
+            {
+
+                creditRequest.setClient(new Client(resultSet.getInt(2)));
+                creditRequest.setAgency(new Agency(resultSet.getInt(3)));
+                creditRequest.setCrtDate(resultSet.getDate(4).toLocalDate());
+                creditRequest.setAmount(resultSet.getDouble(5));
+                creditRequest.setDuration(resultSet.getInt(6));
+                creditRequest.setNotes(resultSet.getString(7));
+
+                return Optional.of(creditRequest);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
         return Optional.empty();
     }
 

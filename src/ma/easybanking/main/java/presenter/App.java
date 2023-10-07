@@ -202,9 +202,6 @@ public class App {
         creditRequestPresenter = new CreditRequestPresenter(creditRequestModel,creditRequestView);
         creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView,creditRequestPresenter);
 
-
-
-
         while(true){
 
             showOptions(options);

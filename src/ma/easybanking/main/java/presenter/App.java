@@ -24,8 +24,11 @@ public class App {
 
     private static SavingsaccntDAOImp savingsaccntDAOImp;
 
-
     private static TransferDAOImp transferDAOImp;
+
+    private static ClientDAOImp clientDAOImp;
+
+    private static CreditRequestDAOImp creditRequestDAOImp;
 
     //-------------------------Services---------------------------------
 
@@ -40,6 +43,10 @@ public class App {
     private static SavingsaccntService savingsaccntService;
 
     private static TransferService transferService;
+
+    private static ClientService clientService;
+
+    private static CreditRequestService creditRequestService;
 
 
     //-------------------------Models------------------------------------
@@ -56,6 +63,10 @@ public class App {
 
     private static TransferModel transferModel;
 
+    private static ClientModel clientModel;
+
+    private static CreditRequestModel creditRequestModel;
+
     //-------------------------Views-------------------------------------
 
     private static AgencyView agencyView;
@@ -70,8 +81,9 @@ public class App {
 
     private static CreditSimulationView creditSimulationView;
 
-    private static TranferView tranferView;
+    private static TransferView tranferView;
 
+    private static CreditRequestView creditRequestView;
 
     //-------------------------Presenters---------------------------------
 
@@ -89,6 +101,10 @@ public class App {
 
     private static TransferPresenter transferPresenter;
 
+    private static ClientPresenter clientPresenter;
+
+    private static CreditRequestPresenter creditRequestPresenter;
+
 
     private static String[] options = {
             "Ajouter une Agence",
@@ -99,8 +115,11 @@ public class App {
             "Créer un Compte Courant",
             "Créer un Compte d'epargne",
             "Faire une simulation de crédit",
-            "Lancer un virement",
-            "Supprimer un virement"
+            "Lancer un Virement",
+            "Supprimer un Virement",
+            "Ajouter un Client",
+            "Chercher un Client",
+            "Chercher une demande de crédit"
     };
 
     public static void start(){
@@ -121,6 +140,9 @@ public class App {
 
         transferDAOImp = new TransferDAOImp(connection);
 
+        clientDAOImp = new ClientDAOImp(connection);
+
+        creditRequestDAOImp = new CreditRequestDAOImp(connection);
 
         //-------------------------Services---------------------------------
 
@@ -136,6 +158,10 @@ public class App {
 
         transferService = new TransferService(transferDAOImp);
 
+        clientService = new ClientService(clientDAOImp);
+
+        creditRequestService = new CreditRequestService(creditRequestDAOImp);
+
         //-------------------------Models------------------------------------
 
         agencyModel = new AgencyModel(agencyService);
@@ -150,6 +176,10 @@ public class App {
 
         transferModel = new TransferModel(transferService);
 
+        clientModel = new ClientModel(clientService);
+
+        creditRequestModel = new CreditRequestModel(creditRequestService);
+
         //-------------------------Views-------------------------------------
 
         agencyView = new AgencyView();
@@ -157,9 +187,9 @@ public class App {
         clientView = new ClientView();
         currentaccntView = new CurrentaccntView();
         savingsaccntView = new SavingsaccntView();
-
         creditSimulationView = new CreditSimulationView();
-        tranferView = new TranferView();
+        tranferView = new TransferView();
+        creditRequestView = new CreditRequestView();
 
         //-------------------------Presenters---------------------------------
 
@@ -168,12 +198,10 @@ public class App {
         agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
         currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
         savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
-
-        creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView);
-
         transferPresenter = new TransferPresenter(transferModel,tranferView);
-
-
+        clientPresenter = new ClientPresenter(clientModel,clientView);
+        creditRequestPresenter = new CreditRequestPresenter(creditRequestModel,creditRequestView);
+        creditSimulationPresenter = new CreditSimulationPresenter(creditSimulationView,creditRequestPresenter);
 
         while(true){
 
@@ -254,6 +282,15 @@ public class App {
                 break;
             case 10:
                 transferPresenter.deleteTransfer();
+                break;
+            case 11:
+                clientPresenter.saveClient();
+                break;
+            case 12:
+                clientPresenter.findClientByCode();
+                break;
+            case 13:
+                creditRequestPresenter.findCreditRequestByNbr();
                 break;
             default:
                 break;

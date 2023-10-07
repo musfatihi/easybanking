@@ -2,7 +2,7 @@ package ma.easybanking.main.java.presenter;
 
 import ma.easybanking.main.java.model.DTO.Transfer;
 import ma.easybanking.main.java.model.TransferModel;
-import ma.easybanking.main.java.view.TranferView;
+import ma.easybanking.main.java.view.TransferView;
 
 import java.util.Optional;
 
@@ -10,9 +10,9 @@ public class TransferPresenter {
 
     private TransferModel transferModel;
 
-    private TranferView transferView;
+    private TransferView transferView;
 
-    public TransferPresenter(TransferModel transferModel, TranferView transferView){
+    public TransferPresenter(TransferModel transferModel, TransferView transferView){
         this.transferModel = transferModel;
         this.transferView = transferView;
     }

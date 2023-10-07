@@ -76,4 +76,8 @@ public class EmployeeView {
     }
 
 
+    public void displayEmployee(Employee employee){
+        System.out.println(employee);
+    }
+
 }

@@ -37,7 +37,11 @@ public class AgencyPresenter {
 
         Optional<Agency> agencyOptional = agencyModel.findAgencyByCode(agencyView.getAgency("Checher une Agence"));
 
-        agencyOptional.ifPresent(agency -> agencyView.displayAgency(agency));
+        if(agencyOptional.isPresent()){
+            agencyView.displayAgency(agencyOptional.get());
+        }else{
+
+        }
 
     }
 

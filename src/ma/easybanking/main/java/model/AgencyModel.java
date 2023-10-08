@@ -35,6 +35,10 @@ public class AgencyModel {
         return agencyService.updateAgency(agency);
     }
 
+    public List<Agency> findAllAgencies(){
+        return agencyService.findAllAgencies();
+    }
+
 
 
 }

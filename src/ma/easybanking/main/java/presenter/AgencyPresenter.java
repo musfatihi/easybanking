@@ -65,4 +65,8 @@ public class AgencyPresenter {
 
     }
 
+    public void findAllAgencies(){
+        agencyView.displayAgencies(agencyModel.findAllAgencies());
+    }
+
 }

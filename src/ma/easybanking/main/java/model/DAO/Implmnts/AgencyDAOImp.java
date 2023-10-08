@@ -25,6 +25,9 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
     private static final String UPDATE_AGENCY = "update agencies set name=?, address=?, phonenumber=? where code=?";
 
+    private static final String FIND_ALL_AGENCIES = "select * from agencies where deleted=false";
+
+
 
 
 
@@ -151,6 +154,38 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
                 agency.setCode(resultSet.getInt(1));
                 agency.setName(resultSet.getString(2));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                agencies.add(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return agencies;
+
+    }
+
+
+    public List<Agency> findAll(){
+
+        List<Agency> agencies = new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_ALL_AGENCIES);
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                Agency agency = new Agency();
+
+                agency.setCode(resultSet.getInt(1));
+                agency.setName(resultSet.getString(2));
+                agency.setAddress(resultSet.getString(3));
                 agency.setPhoneNumber(resultSet.getString(4));
 
                 agencies.add(agency);

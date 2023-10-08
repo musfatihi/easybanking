@@ -49,5 +49,9 @@ public class AgencyService {
 
     }
 
+    public List<Agency> findAllAgencies(){
+        return agencyDAOImp.findAll();
+    }
+
 
 }

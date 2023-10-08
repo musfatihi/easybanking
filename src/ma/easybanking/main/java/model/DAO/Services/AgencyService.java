@@ -43,5 +43,11 @@ public class AgencyService {
 
     }
 
+    public Optional<Agency> updateAgency(Agency agency) {
+
+        return agencyDAOImp.update(agency);
+
+    }
+
 
 }

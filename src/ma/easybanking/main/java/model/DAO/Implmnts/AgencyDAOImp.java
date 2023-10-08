@@ -23,6 +23,9 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
     private static final String FIND_AGENCY_BY_ADDRESS = "select * from agencies where address=? and deleted=false";
 
+    private static final String UPDATE_AGENCY = "update agencies set name=?, address=?, phonenumber=? where code=?";
+
+
 
 
     public AgencyDAOImp(Connection connection){
@@ -107,7 +110,27 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
     @Override
     public Optional<Agency> update(Agency agency) {
-        return null;
+
+        int updatedRows=0;
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(UPDATE_AGENCY);
+
+            stmt.setString(1, agency.getName());
+            stmt.setString(2, agency.getAddress());
+            stmt.setString(3, agency.getPhoneNumber());
+            stmt.setInt(4, agency.getCode());
+
+            updatedRows = stmt.executeUpdate();
+
+            return (updatedRows>0?Optional.of(agency):Optional.empty());
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return Optional.empty();
     }
 
 

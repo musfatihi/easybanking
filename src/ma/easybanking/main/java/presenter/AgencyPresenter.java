@@ -54,4 +54,15 @@ public class AgencyPresenter {
 
     }
 
+    public void updateAgency(){
+        Optional<Agency> optionalAgency = agencyModel.updateAgency(agencyView.updateAgency());
+        if(optionalAgency.isPresent()){
+            agencyView.displayAgency(optionalAgency.get());
+            agencyView.displaySuccessMsg("L'agence a été modifiée avec succès");
+        }else{
+
+        }
+
+    }
+
 }

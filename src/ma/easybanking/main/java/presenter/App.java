@@ -124,7 +124,8 @@ public class App {
             "Muter un employé",
             "Afficher toutes les demandes de crédit",
             "Changer l'état d'une demande de crédit",
-            "Filtrer les demandes de crédit"
+            "Filtrer les demandes de crédit",
+            "Mettre à jour une Agence",
     };
 
     public static void start(){
@@ -309,6 +310,9 @@ public class App {
                 break;
             case 18:
                 creditRequestPresenter.filterCreditRequests();
+                break;
+            case 19:
+                agencyPresenter.updateAgency();
                 break;
             default:
                 break;

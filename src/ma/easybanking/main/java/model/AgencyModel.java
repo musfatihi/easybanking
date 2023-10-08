@@ -31,5 +31,10 @@ public class AgencyModel {
         return agencyService.findAgencyByAddress(agency);
     }
 
+    public Optional<Agency> updateAgency(Agency agency){
+        return agencyService.updateAgency(agency);
+    }
+
+
 
 }

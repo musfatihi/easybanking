@@ -4,6 +4,7 @@ import ma.easybanking.main.java.model.DAO.Services.AgencyService;
 import ma.easybanking.main.java.model.DTO.Agency;
 
 import ma.easybanking.main.java.model.DAO.Implmnts.AgencyDAOImp;
+import ma.easybanking.main.java.model.DTO.Employee;
 
 import java.util.List;
 import java.util.Optional;
@@ -39,6 +40,8 @@ public class AgencyModel {
         return agencyService.findAllAgencies();
     }
 
-
+    public Optional<Agency> findAgencyByEmpMtrcl(Employee employee){
+        return agencyService.findAgencyByEmpMtrcl(employee);
+    }
 
 }

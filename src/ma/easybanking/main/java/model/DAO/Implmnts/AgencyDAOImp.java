@@ -3,6 +3,7 @@ package ma.easybanking.main.java.model.DAO.Implmnts;
 import ma.easybanking.main.java.model.DAO.Intrfcs.GenericInterface;
 import ma.easybanking.main.java.model.DAO.Services.AgencyService;
 import ma.easybanking.main.java.model.DTO.Agency;
+import ma.easybanking.main.java.model.DTO.Employee;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -26,6 +27,9 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
     private static final String UPDATE_AGENCY = "update agencies set name=?, address=?, phonenumber=? where code=?";
 
     private static final String FIND_ALL_AGENCIES = "select * from agencies where deleted=false";
+
+    private static final String FIND_AGENCY_BY_EMPLOYEE_MTRCL = "select agencies.* from agencies inner join agencyemployee on agencies.code=agencyemployee.agncycode where agencyemployee.enddate is null and agencyemployee.empmtrcl=? and agencies.deleted=false";
+
 
 
 
@@ -197,6 +201,35 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
         return agencies;
 
+    }
+
+    public Optional<Agency> findByEmpMtrcl(Employee employee){
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_AGENCY_BY_EMPLOYEE_MTRCL);
+
+            stmt.setInt(1, employee.getMtrcltNbr());
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                Agency agency = new Agency();
+
+                agency.setCode(resultSet.getInt(1));
+                agency.setName(resultSet.getString(2));
+                agency.setAddress(resultSet.getString(3));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                return Optional.of(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return Optional.empty();
     }
 
 }

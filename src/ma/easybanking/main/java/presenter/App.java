@@ -217,7 +217,6 @@ public class App {
             treatement(choice);
 
         }
-
     }
 
     private static void showOptions(String[] options){

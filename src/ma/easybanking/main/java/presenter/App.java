@@ -219,7 +219,6 @@ public class App {
         }
     }
 
-
     private static void showOptions(String[] options){
         int i=1;
         for (String option : options) {

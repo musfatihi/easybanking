@@ -85,6 +85,8 @@ public class App {
 
     private static CreditRequestView creditRequestView;
 
+    private static AgencyEmployeeView agencyEmployeeView;
+
     //-------------------------Presenters---------------------------------
 
     private static AgencyPresenter agencyPresenter;
@@ -128,6 +130,7 @@ public class App {
             "Mettre à jour une Agence",
             "Liste de Contacts",
             "Chercher une Agence par employé",
+            "Historiques"
     };
 
     public static void start(){
@@ -198,12 +201,13 @@ public class App {
         creditSimulationView = new CreditSimulationView();
         tranferView = new TransferView();
         creditRequestView = new CreditRequestView();
+        agencyEmployeeView = new AgencyEmployeeView();
 
         //-------------------------Presenters---------------------------------
 
         agencyPresenter = new AgencyPresenter(agencyView,agencyModel,employeeView);
         employeePresenter = new EmployeePresenter(employeeView,employeeModel);
-        agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
+        agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView,agencyEmployeeView);
         currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
         savingsaccntPresenter = new SavingsaccntPresenter(savingsaccntModel,agencyView,employeeView,clientView,savingsaccntView);
         transferPresenter = new TransferPresenter(transferModel,tranferView);
@@ -321,6 +325,9 @@ public class App {
                 break;
             case 21:
                 agencyPresenter.findAgencyByEmpMtrcl();
+                break;
+            case 22:
+                agencyEmployeePresenter.employeeHistory();
                 break;
             default:
                 break;

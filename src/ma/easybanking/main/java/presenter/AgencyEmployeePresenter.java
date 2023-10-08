@@ -1,10 +1,10 @@
 package ma.easybanking.main.java.presenter;
 
 import ma.easybanking.main.java.model.AgencyEmployeeModel;
-import ma.easybanking.main.java.model.DAO.Services.AgencyEmployeeService;
 import ma.easybanking.main.java.model.DTO.Agency;
 import ma.easybanking.main.java.model.DTO.AgencyEmployee;
 import ma.easybanking.main.java.model.DTO.Employee;
+import ma.easybanking.main.java.view.AgencyEmployeeView;
 import ma.easybanking.main.java.view.AgencyView;
 import ma.easybanking.main.java.view.EmployeeView;
 
@@ -14,16 +14,18 @@ public class AgencyEmployeePresenter {
 
     private AgencyEmployeeModel agencyEmployeeModel;
 
-    //private AgencyEmployeeView agencyEmployeeView;
     private EmployeeView employeeView;
 
     private AgencyView agencyView;
 
-    public AgencyEmployeePresenter(AgencyEmployeeModel agencyEmployeeModel,EmployeeView employeeView,AgencyView agencyView){
+    private AgencyEmployeeView agencyEmployeeView;
+
+    public AgencyEmployeePresenter(AgencyEmployeeModel agencyEmployeeModel,EmployeeView employeeView,AgencyView agencyView,AgencyEmployeeView agencyEmployeeView){
 
         this.agencyView = agencyView;
         this.employeeView = employeeView;
         this.agencyEmployeeModel = agencyEmployeeModel;
+        this.agencyEmployeeView = agencyEmployeeView;
 
     }
 
@@ -41,6 +43,10 @@ public class AgencyEmployeePresenter {
         }
 
 
+    }
+
+    public void employeeHistory(){
+        agencyEmployeeView.displayAgenciesEmployee(agencyEmployeeModel.getEmployeeHistory(this.employeeView.getEmployee("")));
     }
 
 }

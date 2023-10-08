@@ -64,7 +64,8 @@ public class AgencyEmployee {
     public String toString() {
         return "Nbr : "+this.nbr+"\n"+"Agence : "+this.agency.getCode()+"\n"+
                 "Employe : "+this.employee.getMtrcltNbr()+"\n"+
-                "Du : "+ Helpers.localDateToStr(this.startDate)+"\n"+
-                "Au : "+"--\n";
+                "Du : "+Helpers.localDateToStr(this.startDate)+"\n"+
+                "Au : "+(this.endDate!=null?Helpers.localDateToStr(this.endDate):"--")+"\n";
     }
+
 }

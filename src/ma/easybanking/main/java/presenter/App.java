@@ -121,6 +121,10 @@ public class App {
             "Chercher un Client",
             "Chercher une Demande de Crédit",
             "Chercher une Agence par Adresse",
+            "Muter un employé",
+            "Afficher toutes les demandes de crédit",
+            "Changer l'état d'une demande de crédit",
+            "Filtrer les demandes de crédit"
     };
 
     public static void start(){
@@ -293,6 +297,19 @@ public class App {
                 break;
             case 14:
                 agencyPresenter.findAgencyByAddress();
+                break;
+            case 15:
+                agencyEmployeePresenter.assignEmployeeAgency();
+                break;
+            case 16:
+                creditRequestPresenter.findAllCreditRequests();
+                break;
+            case 17:
+                creditRequestPresenter.changeCreditRequestState();
+                break;
+            case 18:
+                creditRequestPresenter.filterCreditRequests();
+                break;
             default:
                 break;
         }

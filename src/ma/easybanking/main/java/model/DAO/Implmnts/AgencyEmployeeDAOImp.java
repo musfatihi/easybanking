@@ -26,8 +26,9 @@ public class AgencyEmployeeDAOImp implements GenericInterface<AgencyEmployee,Int
             PreparedStatement stmt = this.connection.prepareStatement(SAVE_AGENCY_EMPLOYEE, ResultSet.TYPE_SCROLL_SENSITIVE,
                     ResultSet.CONCUR_UPDATABLE);
 
-            stmt.setInt(1, agencyEmployee.getEmployee().getMtrcltNbr());
-            stmt.setInt(2, agencyEmployee.getAgency().getCode());
+            stmt.setInt(1, agencyEmployee.getAgency().getCode());
+            stmt.setInt(2, agencyEmployee.getEmployee().getMtrcltNbr());
+
 
 
             ResultSet resultSet = stmt.executeQuery();

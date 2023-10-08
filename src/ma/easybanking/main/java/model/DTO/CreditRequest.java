@@ -18,6 +18,7 @@ public final class CreditRequest {
     private Agency agency;
     private String notes;
     private LocalDate crtDate;
+    private CRState crstate;
 
     public CreditRequest(){
 

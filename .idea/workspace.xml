@@ -5,33 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1207c93a-e97c-40f8-98b7-0620c75c4710" name="Changes" comment="update project">
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyEmployeeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyEmployeeDAOImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/EmployeeDAOImp.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyEmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/EmployeeService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Account.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/AgencyEmployee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Assignment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Employee.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Mission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Operation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/Person.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/State.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/EmployeeModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyEmployeePresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/EmployeePresenter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/EmployeeView.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/CRState.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/easybanking.iml" beforeDir="false" afterPath="$PROJECT_DIR$/easybanking.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/AgencyModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyDAOImp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Intrfcs/GenericInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Intrfcs/GenericInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/AgencyService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/CreditRequestModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/CreditRequestModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyEmployeeDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/AgencyEmployeeDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/CreditRequestDAOImp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Implmnts/CreditRequestDAOImp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/CreditRequestService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DAO/Services/CreditRequestService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/CreditRequest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/model/DTO/CreditRequest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyEmployeePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/AgencyEmployeePresenter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Helpers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/utils/Helpers.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/CreditRequestPresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/CreditRequestPresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/EmployeePresenter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/presenter/EmployeePresenter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/CreditRequestView.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ma/easybanking/main/java/view/CreditRequestView.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,8 +29,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Enum" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -54,7 +41,6 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="UPDATE_TYPE" value="REBASE" />
   </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 0
@@ -65,17 +51,18 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "EASB-3-Admin-employ-agence",
-    "last_opened_file_path": "C:/Users/yc/Downloads/lombok-1.18.30.jar",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;EASB-3-Admin-employ-agence&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/yc/Downloads/lombok-1.18.30.jar&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">

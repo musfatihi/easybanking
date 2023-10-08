@@ -5,6 +5,7 @@ import ma.easybanking.main.java.model.DTO.CreditRequest;
 import ma.easybanking.main.java.model.DTO.Operation;
 import ma.easybanking.main.java.view.CreditRequestView;
 
+import java.util.List;
 import java.util.Optional;
 
 public class CreditRequestPresenter {
@@ -49,6 +50,28 @@ public class CreditRequestPresenter {
 
         }
 
+    }
+
+    public void findAllCreditRequests(){
+        List<CreditRequest> creditRequests = creditRequestModel.findAllCreditRequests();
+        creditRequestView.displayCreditRequests(creditRequests);
+    }
+
+    public void changeCreditRequestState(){
+        if(creditRequestModel.changeCreditRequestState(creditRequestView.getCreditRequestNbr(),creditRequestView.getCreditRequestNewState()))
+        {
+            creditRequestView.displaySuccessMsg("L'état de demande de crédit a été changé avec succès");
+        }
+    }
+
+    public void filterCreditRequests(){
+        System.out.println("----------------------Filtrer les demandes de crédit--------------------------");
+
+        if(creditRequestView.getFilter().equals("state")){
+            creditRequestView.displayCreditRequestsByState(creditRequestModel.findCreditRequestsByState());
+        }else{
+            creditRequestView.displayCreditRequestsByDate(creditRequestModel.findCreditRequestsByDate());
+        }
     }
 
 }

@@ -217,7 +217,6 @@ public class App {
             treatement(choice);
 
         }
-
     }
 
     private static void showOptions(String[] options){
@@ -227,6 +226,7 @@ public class App {
             i++;
         }
     }
+
 
     // Asking for Input as Choice
     private static int takeInput(int min, int max) {

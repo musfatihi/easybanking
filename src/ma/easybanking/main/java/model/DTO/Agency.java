@@ -1,5 +1,8 @@
 package ma.easybanking.main.java.model.DTO;
 
+import lombok.AllArgsConstructor;
+
+@AllArgsConstructor
 public class Agency {
     private int code;
     private String name;

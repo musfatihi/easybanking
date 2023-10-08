@@ -23,10 +23,6 @@ public class AgencyView {
 
             Attribut attribut = new Attribut(field);
 
-            if(field.equals("Nom") || field.equals("Adresse") || field.equals("N Tel")){
-                attribut.setMandatory();
-            }
-
             attributs.add(attribut);
 
         }
@@ -90,6 +86,41 @@ public class AgencyView {
         return new Agency(filledFields.get("Adresse dAgence"));
 
     }
+
+    public Agency updateAgency(){
+
+        System.out.println("----------------------Modification d'une Agence--------------------------");
+
+        String[] fields = {"Code Agence","Nom", "Adresse", "N Tel"};
+
+        List<Attribut> attributs = new ArrayList<>();
+
+        for (String field:fields) {
+
+            Attribut attribut = new Attribut(field);
+
+            if(field.equals("Code Agence"))
+            {
+                attribut.setType("number");
+            }
+
+            attributs.add(attribut);
+        }
+
+
+        HashMap<String,String> filledFields = Helpers.takeInfos(attributs);
+
+        System.out.println("--------------------------------------------------------------------");
+
+        return new Agency(Integer.valueOf(filledFields.get("Code Agence")),filledFields.get("Nom"),filledFields.get("Adresse"),filledFields.get("N Tel"));
+
+    }
+
+
+
+
+
+
 
 
     public void displayAgency(Agency agency){

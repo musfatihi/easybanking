@@ -3,6 +3,7 @@ package ma.easybanking.main.java.model.DAO.Implmnts;
 import ma.easybanking.main.java.model.DAO.Intrfcs.GenericInterface;
 import ma.easybanking.main.java.model.DAO.Services.AgencyService;
 import ma.easybanking.main.java.model.DTO.Agency;
+import ma.easybanking.main.java.model.DTO.Employee;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -22,6 +23,15 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
     private static final String FIND_AGENCY_BY_CODE = "select * from agencies where code=? and deleted=false";
 
     private static final String FIND_AGENCY_BY_ADDRESS = "select * from agencies where address=? and deleted=false";
+
+    private static final String UPDATE_AGENCY = "update agencies set name=?, address=?, phonenumber=? where code=?";
+
+    private static final String FIND_ALL_AGENCIES = "select * from agencies where deleted=false";
+
+    private static final String FIND_AGENCY_BY_EMPLOYEE_MTRCL = "select agencies.* from agencies inner join agencyemployee on agencies.code=agencyemployee.agncycode where agencyemployee.enddate is null and agencyemployee.empmtrcl=? and agencies.deleted=false";
+
+
+
 
 
 
@@ -107,7 +117,27 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
     @Override
     public Optional<Agency> update(Agency agency) {
-        return null;
+
+        int updatedRows=0;
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(UPDATE_AGENCY);
+
+            stmt.setString(1, agency.getName());
+            stmt.setString(2, agency.getAddress());
+            stmt.setString(3, agency.getPhoneNumber());
+            stmt.setInt(4, agency.getCode());
+
+            updatedRows = stmt.executeUpdate();
+
+            return (updatedRows>0?Optional.of(agency):Optional.empty());
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return Optional.empty();
     }
 
 
@@ -139,6 +169,67 @@ public class AgencyDAOImp implements GenericInterface<Agency,Integer> {
 
         return agencies;
 
+    }
+
+
+    public List<Agency> findAll(){
+
+        List<Agency> agencies = new ArrayList<>();
+
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_ALL_AGENCIES);
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                Agency agency = new Agency();
+
+                agency.setCode(resultSet.getInt(1));
+                agency.setName(resultSet.getString(2));
+                agency.setAddress(resultSet.getString(3));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                agencies.add(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return agencies;
+
+    }
+
+    public Optional<Agency> findByEmpMtrcl(Employee employee){
+        try {
+
+            PreparedStatement stmt = connection.prepareStatement(FIND_AGENCY_BY_EMPLOYEE_MTRCL);
+
+            stmt.setInt(1, employee.getMtrcltNbr());
+
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while(resultSet.next()){
+
+                Agency agency = new Agency();
+
+                agency.setCode(resultSet.getInt(1));
+                agency.setName(resultSet.getString(2));
+                agency.setAddress(resultSet.getString(3));
+                agency.setPhoneNumber(resultSet.getString(4));
+
+                return Optional.of(agency);
+            }
+
+        } catch (Exception e) {
+            System.out.println(e);
+        }
+
+        return Optional.empty();
     }
 
 }

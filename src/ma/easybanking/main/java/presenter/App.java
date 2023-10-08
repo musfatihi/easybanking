@@ -124,7 +124,10 @@ public class App {
             "Muter un employé",
             "Afficher toutes les demandes de crédit",
             "Changer l'état d'une demande de crédit",
-            "Filtrer les demandes de crédit"
+            "Filtrer les demandes de crédit",
+            "Mettre à jour une Agence",
+            "Liste de Contacts",
+            "Chercher une Agence par employé",
     };
 
     public static void start(){
@@ -198,7 +201,7 @@ public class App {
 
         //-------------------------Presenters---------------------------------
 
-        agencyPresenter = new AgencyPresenter(agencyView,agencyModel);
+        agencyPresenter = new AgencyPresenter(agencyView,agencyModel,employeeView);
         employeePresenter = new EmployeePresenter(employeeView,employeeModel);
         agencyEmployeePresenter = new AgencyEmployeePresenter(agencyEmployeeModel,employeeView,agencyView);
         currentaccntPresenter = new CurrentaccntPresenter(currentaccntModel,agencyView,employeeView,clientView,currentaccntView);
@@ -309,6 +312,15 @@ public class App {
                 break;
             case 18:
                 creditRequestPresenter.filterCreditRequests();
+                break;
+            case 19:
+                agencyPresenter.updateAgency();
+                break;
+            case 20:
+                agencyPresenter.findAllAgencies();
+                break;
+            case 21:
+                agencyPresenter.findAgencyByEmpMtrcl();
                 break;
             default:
                 break;
